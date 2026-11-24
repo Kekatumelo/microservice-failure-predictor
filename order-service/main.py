@@ -1,18 +1,8 @@
 from fastapi import FastAPI,HTTPException
 from pydantic import BaseModel
+from models import Order,NewOrder
 
 app = FastAPI()
-
-#Request Model
-class NewOrder(BaseModel):
-  quantity:int
-  customer_id:int
-
-#Response Model
-class Order(BaseModel):
-  order_id:int
-  quantity:int
-  customer_id:int
 
 orders={  1: Order(order_id=1, quantity=3, customer_id=101),
     2: Order(order_id=2, quantity=5, customer_id=102),
